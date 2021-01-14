@@ -12,23 +12,24 @@
 <div style="display: flex; justify-content: center">
     <div class="shadow-lg p-3 mb-5 rounded"
          style="background-color: #353535; width: 600px; align-items: center; justify-content: center">
-        <form action="/contact" method="post">
+        <form action="/contact" th:object="${contact}" method="post">
             <div>
                 <div style="text-align: center">
                     <img src="beer-yellow.svg" alt="" width="128" height="128">
                 </div>
-                    <div class="col-12" style="margin-bottom: 10px">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
-                    </div>
+                <div class="col-12" style="margin-bottom: 10px">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" th:field="*{name}" required>
+                </div>
                 <div class="col-12" style="margin-bottom: 10px">
                     <label for="email" class="form-label">E-mail</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
+                    <input type="email" class="form-control" id="email" name="email" th:field="*{email}" required>
                 </div>
-                    <div class="col-12" style="margin-bottom: 10px">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea class="form-control" id="message" name="message" required></textarea>
-                    </div>
+                <div class="col-12" style="margin-bottom: 10px">
+                    <label for="content" class="form-label">Message</label>
+                    <textarea class="form-control" id="content" name="content" th:field="*{content}"
+                              required></textarea>
+                </div>
                 <div class="col-12" style="margin-top: 15px; text-align: center">
                     <button class="btn btn-primary" type="submit" style="background-color: #dc8434; border: none">Send
                     </button>
